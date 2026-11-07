@@ -1,6 +1,8 @@
 ---
 name: system-design-plan
 description: Use when the user requests a detailed implementation plan or architecture handoff for another engineer or agent.
+metadata:
+  version: "0.2.1"
 ---
 
 # Write a system implementation plan

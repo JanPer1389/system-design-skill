@@ -1,0 +1,13 @@
+{
+  "files": [
+    {"path": "VERSION", "format": "text", "field": "version"},
+    {"path": "skills/system-design-enter/SKILL.md", "format": "skill", "field": "metadata.version"},
+    {"path": "skills/system-design-brainstorm/SKILL.md", "format": "skill", "field": "metadata.version"},
+    {"path": "skills/system-design-review/SKILL.md", "format": "skill", "field": "metadata.version"},
+    {"path": "skills/system-design-plan/SKILL.md", "format": "skill", "field": "metadata.version"},
+    {"path": "skills/system-design-microservices/SKILL.md", "format": "skill", "field": "metadata.version"}
+  ],
+  "audit": {
+    "exclude": [".git", "__pycache__", "RELEASE-NOTES.md"]
+  }
+}

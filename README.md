@@ -22,7 +22,7 @@ git clone https://github.com/JanPer1389/system-design-skill.git
 
 Install **all five folders inside `skills/` together** in your agent's supported skills directory. Keep them as siblings: shared instructions live under `system-design-enter/references/`, and the other skills use relative links to that directory. Use your agent's documented skills installation mechanism and restart or reload its skill discovery as needed.
 
-The agent needs skill loading or file reading, plus a way to discuss questions. A file writer is needed to save documents; without it, the skill returns the document in chat and states it was not saved. The instructions work without Superpowers or other authoring skills installed. Automatic discovery and exact invocation syntax depend on the host; cross-host model behavior is not certified.
+The agent needs skill loading or file reading, plus a way to discuss questions. A file writer is needed to save documents; without it, the skill returns the document in chat and states it was not saved. The instructions are self-contained and require no other skills. Automatic discovery and exact invocation syntax depend on the host; cross-host model behavior is not certified.
 
 ## Use
 
@@ -62,6 +62,24 @@ The [reference index](skills/system-design-enter/references/reference-index.md) 
 
 All skills follow one [shared policy source](skills/system-design-enter/references/policies.md). Reusable project examples use fictional names.
 
+## Versioning and releases
+
+The current release is recorded in [VERSION](VERSION). All five skills carry the same `metadata.version` in their frontmatter. The tracked locations are declared in [.version-bump.json](.version-bump.json); release history is kept in [RELEASE-NOTES.md](RELEASE-NOTES.md).
+
+Maintainers can run the following commands from any directory with Python 3.10+ and no additional libraries:
+
+```sh
+python scripts/bump-version.py --check
+python scripts/bump-version.py --audit
+python scripts/bump-version.py 0.3.0
+```
+
+Use an absolute script path when running outside the repository. `--check` detects invalid, missing or inconsistent versions. `--audit` also finds undeclared references to the current version, excluding historical release notes. A version update validates every declared target and audits the old version before writing; it changes only version values and preserves skill bodies. Repeating the same update is safe. Use one version writer at a time; an interrupted process may require restoring consistency before retrying.
+
+Follow `MAJOR.MINOR.PATCH`: major for incompatible changes to the published skill interface or workflow contract, minor for backward-compatible capabilities, and patch for compatible corrections or maintenance. Prerelease/build suffixes are supported. The command sets the exact requested version; it does not calculate increments or enforce chronological ordering.
+
+For a release, update the version, add release notes, run both checks, then commit and tag the reviewed change as `v<version>`. Push the commit and that specific tag through your normal Git workflow. The script does not create commits, tags or releases automatically, and installed skills never invoke it as part of an architecture review.
+
 ## License
 
-[MIT](LICENSE). Methodological adaptations from Superpowers retain its MIT notice in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+[MIT](LICENSE). Required third-party license notices are preserved in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
