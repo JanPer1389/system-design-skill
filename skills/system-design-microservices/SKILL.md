@@ -2,7 +2,7 @@
 name: system-design-microservices
 description: Use when evaluating service decomposition, domain ownership or consistency and failure behavior across service boundaries during review or planning.
 metadata:
-  version: "0.2.1"
+  version: "0.3.0"
 ---
 
 # Evaluate service decomposition

@@ -8,7 +8,7 @@ Relevant sources include its requesting-code-review reviewer template, task-revi
 
 Adaptations include separate requirements-compliance and quality assessments, verification of author claims against source evidence, finding calibration, focused re-review, design review from a builder's perspective, exact task/interface handoffs, and artifact self-review. System Design supplies its own domain-modeling and architectural content and retains its static-review and planning-only boundaries.
 
-This distribution contains skill instructions and references. It does not distribute the Superpowers repository, runtime integrations, branding or telemetry, and does not require Superpowers to be installed.
+This distribution contains skill instructions, references and native host integration assets. Thin manifest layouts and lifecycle integration approaches were adapted under the same MIT terms, with package-specific bootstrap code. The distribution does not include the upstream repository, branding or telemetry and does not require it to be installed.
 
 The following upstream notice applies to adapted material. Other project material is provided under the repository's MIT license.
 

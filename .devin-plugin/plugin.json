@@ -1,0 +1,8 @@
+{
+  "name": "system-design",
+  "version": "0.3.0",
+  "description": "Architecture discussion, static reviews and detailed implementation plans",
+  "license": "MIT",
+  "homepage": "https://github.com/JanPer1389/system-design-skill",
+  "repository": "https://github.com/JanPer1389/system-design-skill"
+}

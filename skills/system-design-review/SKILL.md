@@ -2,7 +2,7 @@
 name: system-design-review
 description: Use when assessing a proposed system design, partial implementation, existing application architecture or changes to architectural contracts.
 metadata:
-  version: "0.2.1"
+  version: "0.3.0"
 ---
 
 # Review system architecture

@@ -1,0 +1,15 @@
+repos:
+  - repo: local
+    hooks:
+      - id: package-validation
+        name: Validate package assets
+        entry: python scripts/validate.py
+        language: system
+        pass_filenames: false
+        always_run: true
+      - id: version-audit
+        name: Audit release versions
+        entry: python scripts/bump-version.py --audit
+        language: system
+        pass_filenames: false
+        always_run: true

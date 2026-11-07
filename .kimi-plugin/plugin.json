@@ -1,0 +1,12 @@
+{
+  "name": "system-design",
+  "version": "0.3.0",
+  "description": "Architecture discussion, static reviews and detailed implementation plans",
+  "license": "MIT",
+  "skills": "./skills/",
+  "sessionStart": {
+    "skill": "system-design-enter"
+  },
+  "skillInstructions": "Use native Skill for the discovered system-design-* IDs; Read/Grep/Glob for static inspection; AskUserQuestion for independent questions when available, otherwise chat and wait. Write/Edit only architecture documents. Load the shared policies through the relative link in the invoked skill. Do not execute application code, tests or builds. Never invent missing capabilities.",
+  "homepage": "https://github.com/JanPer1389/system-design-skill"
+}

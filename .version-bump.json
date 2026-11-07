@@ -1,13 +1,98 @@
 {
   "files": [
-    {"path": "VERSION", "format": "text", "field": "version"},
-    {"path": "skills/system-design-enter/SKILL.md", "format": "skill", "field": "metadata.version"},
-    {"path": "skills/system-design-brainstorm/SKILL.md", "format": "skill", "field": "metadata.version"},
-    {"path": "skills/system-design-review/SKILL.md", "format": "skill", "field": "metadata.version"},
-    {"path": "skills/system-design-plan/SKILL.md", "format": "skill", "field": "metadata.version"},
-    {"path": "skills/system-design-microservices/SKILL.md", "format": "skill", "field": "metadata.version"}
+    {
+      "path": "VERSION",
+      "format": "text",
+      "field": "version"
+    },
+    {
+      "path": "skills/system-design-enter/SKILL.md",
+      "format": "skill",
+      "field": "metadata.version"
+    },
+    {
+      "path": "skills/system-design-brainstorm/SKILL.md",
+      "format": "skill",
+      "field": "metadata.version"
+    },
+    {
+      "path": "skills/system-design-review/SKILL.md",
+      "format": "skill",
+      "field": "metadata.version"
+    },
+    {
+      "path": "skills/system-design-plan/SKILL.md",
+      "format": "skill",
+      "field": "metadata.version"
+    },
+    {
+      "path": "skills/system-design-microservices/SKILL.md",
+      "format": "skill",
+      "field": "metadata.version"
+    },
+    {
+      "path": ".antigravity-plugin/plugin.json",
+      "format": "json",
+      "field": "version"
+    },
+    {
+      "path": ".claude-plugin/marketplace.json",
+      "format": "json",
+      "field": "plugins.0.version"
+    },
+    {
+      "path": ".claude-plugin/plugin.json",
+      "format": "json",
+      "field": "version"
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "format": "json",
+      "field": "version"
+    },
+    {
+      "path": ".cursor-plugin/plugin.json",
+      "format": "json",
+      "field": "version"
+    },
+    {
+      "path": ".devin-plugin/plugin.json",
+      "format": "json",
+      "field": "version"
+    },
+    {
+      "path": ".kimi-plugin/plugin.json",
+      "format": "json",
+      "field": "version"
+    },
+    {
+      "path": ".muse-plugin/plugin.json",
+      "format": "json",
+      "field": "version"
+    },
+    {
+      "path": "gemini-extension.json",
+      "format": "json",
+      "field": "version"
+    },
+    {
+      "path": "package.json",
+      "format": "json",
+      "field": "version"
+    },
+    {
+      "path": ".hermes-plugin/plugin.yaml",
+      "format": "yaml",
+      "field": "version"
+    }
   ],
   "audit": {
-    "exclude": [".git", "__pycache__", "RELEASE-NOTES.md"]
+    "exclude": [
+      ".git",
+      "__pycache__",
+      "RELEASE-NOTES.md",
+      "tests",
+      ".github"
+    ]
   }
 }

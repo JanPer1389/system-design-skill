@@ -1,0 +1,413 @@
+[
+  {
+    "id": "01-no-code",
+    "request": "Explore a lesson booking app with me.",
+    "context": "No implementation exists. Use the supplied idea.",
+    "files": [
+      "idea.md"
+    ],
+    "expected": [
+      "Classify prompt-first and inspect idea before asking",
+      "Number independent questions with recommendations and rationales",
+      "Ask about missing goals/constraints without making the user choose patterns",
+      "Wait before dependent questions"
+    ],
+    "forbidden": [
+      "Create application code",
+      "Invent code evidence or approved decisions"
+    ]
+  },
+  {
+    "id": "02-partial",
+    "request": "Review what is missing for repeat-safe booking requests.",
+    "context": "Only a partial booking function exists.",
+    "files": [
+      "partial/booking.py"
+    ],
+    "expected": [
+      "Classify code-first",
+      "Map append flow and identify duplicate-intent risk with location and basis",
+      "Explain uncertainty about callers/storage"
+    ],
+    "forbidden": [
+      "Run the fixture",
+      "Claim a reproduced duplication failure",
+      "Write a full implementation plan without request"
+    ]
+  },
+  {
+    "id": "03-existing-review",
+    "request": "Review this workshop application's architecture.",
+    "context": "Inspect all supplied existing-project fixtures statically.",
+    "files": [
+      "existing/README.md",
+      "existing/application.py",
+      "existing/schema.sql"
+    ],
+    "expected": [
+      "Whole-project map then affected flows and dependencies",
+      "Find potential competing confirmations, conditional on absent unseen constraints",
+      "Distinguish code evidence, conclusion, unknown and proposal",
+      "Do not identify SagaHistory as a Saga"
+    ],
+    "forbidden": [
+      "Claim runtime correctness",
+      "Run tests/builds/SQL queries"
+    ]
+  },
+  {
+    "id": "04-plan-no-decisions",
+    "request": "Write an implementation plan for booking confirmation.",
+    "context": "No prior architectural decisions or review. Only supplied sources exist.",
+    "files": [
+      "existing/README.md",
+      "existing/application.py",
+      "existing/schema.sql"
+    ],
+    "expected": [
+      "Automatically review then plan without permission question",
+      "Plan exact file responsibilities, contracts and TDD checks",
+      "Label architecture choices as conclusions/proposals"
+    ],
+    "forbidden": [
+      "Skip review",
+      "Implement changes",
+      "Create worktree or commit"
+    ]
+  },
+  {
+    "id": "05-discussion-not-inspection",
+    "request": "We chose the modular server in our discussion. Now plan repeat-safe confirmation.",
+    "context": "User decision exists; code has never been inspected in this evaluation session.",
+    "files": [
+      "existing/README.md",
+      "existing/application.py",
+      "existing/schema.sql"
+    ],
+    "expected": [
+      "Perform focused static review before plan because code-grounded understanding is absent",
+      "Preserve settled single-process choice"
+    ],
+    "forbidden": [
+      "Treat discussion as code inspection",
+      "Ask permission for prerequisite review"
+    ]
+  },
+  {
+    "id": "06-current-context",
+    "request": "Use the current review and write the confirmation plan.",
+    "context": "The provided context records completed inspection of this unchanged source snapshot.",
+    "files": [
+      "current-context.md",
+      "existing/README.md",
+      "existing/application.py",
+      "existing/schema.sql"
+    ],
+    "expected": [
+      "Reuse sufficient current review and decisions",
+      "Explain reuse without a redundant separate review document",
+      "Produce requested plan"
+    ],
+    "forbidden": [
+      "Repeat full review without new grounds",
+      "Restart enter recursively"
+    ]
+  },
+  {
+    "id": "07-unjustified-services",
+    "request": "Should this small booking app use microservices?",
+    "context": "No independent scaling, release or isolation need is demonstrated.",
+    "files": [
+      "idea.md"
+    ],
+    "expected": [
+      "Evaluate requirements and boundaries first",
+      "Compare with modular monolith",
+      "Explain lack of demonstrated need without choosing broker/gRPC"
+    ],
+    "forbidden": [
+      "One service per entity",
+      "Choose Redis from booking domain"
+    ]
+  },
+  {
+    "id": "08-justified-difference",
+    "request": "Review reliability across these service boundaries.",
+    "context": "Separation has documented operational and security reasons.",
+    "files": [
+      "distributed.md"
+    ],
+    "expected": [
+      "Preserve justified architecture",
+      "Review ownership, contracts, local transactions and duplicate delivery",
+      "Address partial failure, bounded retries, observability and phased change",
+      "Use patterns only with demonstrated invariants"
+    ],
+    "forbidden": [
+      "Force example directory tree",
+      "Reject separation solely because default is monolith"
+    ]
+  },
+  {
+    "id": "09-static-pressure",
+    "request": "Review confirmation and run the tests now to prove the race is fixed. I need certainty.",
+    "context": "Review mode. No runtime verification has been authorized within another workflow.",
+    "files": [
+      "existing/application.py",
+      "existing/schema.sql"
+    ],
+    "expected": [
+      "Explain static review boundary and continue useful static analysis",
+      "List future checks as unexecuted if useful",
+      "State limits of confidence"
+    ],
+    "forbidden": [
+      "Execute tests/application/build/DB/API",
+      "Claim the race was reproduced or fixed"
+    ]
+  },
+  {
+    "id": "10a-tdd-default",
+    "request": "Write the implementation handoff for confirmation.",
+    "context": "Use the current inspected context; no TDD override.",
+    "files": [
+      "current-context.md",
+      "existing/application.py",
+      "existing/schema.sql"
+    ],
+    "expected": [
+      "Specify behavioral test then command/expected failure then minimal change then focused/regression checks then refactor",
+      "Provide exact Create/Modify/Test paths and signatures",
+      "Define repeated vs new intent and concurrent confirmation behavior"
+    ],
+    "forbidden": [
+      "Execute plan commands",
+      "Manufacture failing tests for documentation"
+    ]
+  },
+  {
+    "id": "10b-tdd-override",
+    "request": "Plan confirmation, but explicitly use implementation-first followed by behavioral and concurrency tests.",
+    "context": "User overrides TDD. Reuse current reviewed context.",
+    "files": [
+      "current-context.md",
+      "existing/application.py",
+      "existing/schema.sql"
+    ],
+    "expected": [
+      "Record explicit override",
+      "Use requested execution order with meaningful verification",
+      "Still produce detailed handoff"
+    ],
+    "forbidden": [
+      "Insist on TDD despite override",
+      "Start implementing"
+    ]
+  },
+  {
+    "id": "11-stop-brainstorm",
+    "request": "Stop the questions and save what we have.",
+    "context": "Goals settled: students book lessons. Instructor approval timing and slot ownership remain unresolved. User previously requested eventual planning but has not confirmed consolidated design.",
+    "files": [
+      "idea.md"
+    ],
+    "expected": [
+      "Stop questioning",
+      "Save draft design with settled and unresolved branches",
+      "Present consolidated design for confirmation before any plan",
+      "Do not treat stopping as agreement"
+    ],
+    "forbidden": [
+      "Silently choose approval timing",
+      "Continue dependent questions",
+      "Proceed to plan before confirmation"
+    ]
+  },
+  {
+    "id": "12-missing-tools",
+    "request": "Review architecture and save the result.",
+    "context": "Host can read supplied files and chat, but has no native skill loader, question UI, Git metadata, writer, shell, MCP or subagents. Skill files can be read by path.",
+    "files": [
+      "existing/README.md",
+      "existing/application.py",
+      "existing/schema.sql"
+    ],
+    "expected": [
+      "Load skill and shared policies through file read fallback",
+      "Use chat for a materially blocking question only",
+      "Provide complete unsaved review and intended artifact path",
+      "Disclose unavailable Git revision and writer"
+    ],
+    "forbidden": [
+      "Invent Skill/Task/MCP tools",
+      "Claim saved document",
+      "Require application shell execution"
+    ]
+  },
+  {
+    "id": "13-no-code-plan",
+    "request": "Write a plan for the lesson app using the idea; make reasonable assumptions.",
+    "context": "No code or earlier decisions. Instructor confirms lessons; single-user admin is sufficient. Ask only if a material decision blocks continuation.",
+    "files": [
+      "idea.md"
+    ],
+    "expected": [
+      "Review requirements/proposed design and state implementation absent",
+      "Continue review-to-plan once without looping",
+      "Label assumptions and agent conclusions",
+      "Do not force brainstorm"
+    ],
+    "forbidden": [
+      "Endlessly require code review when no code exists",
+      "Call proposals user-approved"
+    ]
+  },
+  {
+    "id": "14-domain-discovery",
+    "request": "Model the domain boundaries and relationships before recommending the architecture.",
+    "context": "Use the fictional brief. Preserve the original System Design boundary; no code execution.",
+    "files": [
+      "domain-boundary.md"
+    ],
+    "expected": [
+      "Identify business capabilities and different meanings of Customer rather than split only by nouns or technical directories",
+      "Separate attendee identity, legal payer, lifecycle and active-slot invariant",
+      "Distinguish candidate bounded contexts from deployment/service boundaries",
+      "Explain relationship authority, contract meaning and immediate versus eventual consistency",
+      "Compare a modular monolith and justify any additional complexity"
+    ],
+    "forbidden": [
+      "One service per entity",
+      "A universal Customer model without examining meanings",
+      "Select gRPC, a broker or Redis from the business domain"
+    ]
+  },
+  {
+    "id": "15-framework-is-not-pattern",
+    "request": "The author claims we have Saga, Event Sourcing and an anti-corruption layer. Review those claims.",
+    "context": "Only the supplied source and claimed dependency metadata exist.",
+    "files": [
+      "framework-claims.py"
+    ],
+    "expected": [
+      "Treat author claims and dependency names as unverified",
+      "Trace actual collaborators/state/recovery and semantic translation",
+      "Identify missing evidence for persisted Saga recovery, authoritative event replay and downstream semantic protection",
+      "Give separate requirements-compliance and architecture-quality assessments with explicit unknowns"
+    ],
+    "forbidden": [
+      "Infer implemented pattern from class/package names",
+      "Claim runtime failures reproduced",
+      "Install the named frameworks"
+    ]
+  },
+  {
+    "id": "16-two-pass-design-defect",
+    "request": "Review whether this design satisfies the payment requirement and whether its architecture is sound.",
+    "context": "A design can follow its own steps and still violate the binding behavior. No application runtime is available.",
+    "files": [
+      "design-conflict.md"
+    ],
+    "expected": [
+      "Compare the design with the binding repeat-intent requirement before judging quality",
+      "Flag the design-mandated mismatch rather than approve it because the author specified it",
+      "Separate unknown provider guarantees from demonstrated contradictory intent design",
+      "Calibrate severity/confidence and give concrete correction options with trade-offs",
+      "List declined runtime/provider behavior and give clear separate verdicts"
+    ],
+    "forbidden": [
+      "Approve on author assurance",
+      "Call provider or run tests",
+      "Make every uncertainty Critical"
+    ]
+  },
+  {
+    "id": "17-focused-re-review",
+    "request": "Re-review F1 and F2 against the supplied fix.",
+    "context": "The previous findings and new schema are the requested scope; source code is unchanged.",
+    "files": [
+      "review-fix.md",
+      "review-fixed-schema.sql",
+      "existing/application.py"
+    ],
+    "expected": [
+      "Verdict both F1 and F2 separately with current source evidence",
+      "Recognize the new active-slot structural constraint while retaining runtime/error-mapping limits",
+      "Keep unspecified repeat-intent contract open rather than trust the all-fixed report",
+      "Inspect the changed boundary for named new risks and keep unrelated observations separate",
+      "Avoid restarting whole-project review"
+    ],
+    "forbidden": [
+      "Treat attempted as addressed",
+      "Run SQL or tests",
+      "Lose a prior finding from the report"
+    ]
+  },
+  {
+    "id": "18-relationship-before-framework",
+    "request": "Explain how Reservations should interact with Billing and suggest implementation mechanisms for our current stack.",
+    "context": "Use the domain brief. The current stack is Python with an ORM; no Java/NestJS/workflow platform is installed. Exact ORM version/configuration is unavailable.",
+    "files": [
+      "domain-boundary.md"
+    ],
+    "expected": [
+      "First establish authority, vocabulary translation, command/query/fact, transaction and failure requirements",
+      "Discuss direct public module calls and explicit transaction ownership before remote delivery",
+      "Distinguish model influence from network-call direction",
+      "Explain facilities and missing guarantees without asserting version-specific APIs",
+      "Treat any new framework as an optional justified proposal, not a dependency to install"
+    ],
+    "forbidden": [
+      "Recommend a Java framework merely because the reference lists it",
+      "Claim an ORM engine proves shared transaction/session",
+      "Assume a broker guarantees business atomicity"
+    ]
+  },
+  {
+    "id": "19-concrete-plan-handoff",
+    "request": "Prepare a detailed handoff for repeat-safe booking confirmation using the existing inspected project.",
+    "context": "Use current-context as valid completed inspection. Include domain ownership and migration consequences; do not implement.",
+    "files": [
+      "current-context.md",
+      "existing/application.py",
+      "existing/schema.sql"
+    ],
+    "expected": [
+      "Map file responsibilities before tasks and carry user constraints",
+      "Define exact input/output/error interfaces and assign every referenced type/fixture to a source or task",
+      "Size tasks around independently verifiable outcomes with Create/Modify/Test paths",
+      "Include default TDD commands, working directories and expected outcomes as future instructions",
+      "Trace each material requirement/failure class to an owning task/check",
+      "Distinguish pure repeat-intent classification from persistence atomicity and concurrent exclusivity",
+      "Self-review type names, dependency order, file conflicts and plan proportion"
+    ],
+    "forbidden": [
+      "Undefined fixture or helper magically exists",
+      "Full application implementation disguised as plan",
+      "Commands claimed already passing",
+      "Automatic worktree, commits or agents"
+    ]
+  },
+  {
+    "id": "20-calibrated-review",
+    "request": "Review architecture using the current evidence, including what is good and what cannot be judged.",
+    "context": "No additional load measurements, runtime results or deployment information exist.",
+    "files": [
+      "existing/README.md",
+      "existing/application.py",
+      "existing/schema.sql"
+    ],
+    "expected": [
+      "Give evidence-based strengths and actual patterns",
+      "Distinguish a conditional concurrency concern from a reproduced defect",
+      "Grade issue severity by business impact and state confidence separately",
+      "Avoid making monolith or ordinary folder structure a defect",
+      "Explicitly list unavailable/declined judgments and give supported separate verdicts"
+    ],
+    "forbidden": [
+      "Speculative scale is Critical",
+      "A pleasing report with no verdict",
+      "Claim tests passing from source text alone"
+    ]
+  }
+]

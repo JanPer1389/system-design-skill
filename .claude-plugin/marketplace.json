@@ -1,0 +1,14 @@
+{
+  "name": "system-design",
+  "description": "Local distribution source for System Design architecture skills",
+  "owner": {
+    "name": "Josef Vorobev"
+  },
+  "plugins": [
+    {
+      "name": "system-design",
+      "version": "0.3.0",
+      "source": "./"
+    }
+  ]
+}

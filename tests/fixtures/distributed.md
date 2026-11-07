@@ -1,0 +1,3 @@
+# Justified service separation
+
+An existing image renderer runs untrusted customer templates in isolated compute. The billing service must never load templates or share credentials with render workers. Separate teams deploy billing monthly and rendering several times a day. Render demand spikes independently to hundreds of concurrent jobs. The deployment team already operates queues and tracing. Billing owns charges, rendering owns jobs and outputs. Job acceptance must be durable; output may arrive later. Delivery can repeat. Existing separation is a user-approved security and operations decision. There is no requirement for gRPC, a specific broker or distributed transactions.

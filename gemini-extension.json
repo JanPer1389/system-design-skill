@@ -1,0 +1,6 @@
+{
+  "name": "system-design",
+  "version": "0.3.0",
+  "description": "Architecture discussion, static reviews and detailed implementation plans",
+  "contextFileName": "GEMINI.md"
+}

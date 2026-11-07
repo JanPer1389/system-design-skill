@@ -1,0 +1,35 @@
+{
+  "name": "system-design",
+  "version": "0.3.0",
+  "private": true,
+  "description": "Standalone architecture discussion, static review and planning skills",
+  "type": "module",
+  "main": ".opencode/plugins/system-design.js",
+  "license": "MIT",
+  "keywords": [
+    "pi-package",
+    "skills",
+    "architecture",
+    "system-design"
+  ],
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "pi": {
+    "extensions": [
+      "./.pi/extensions/system-design.ts"
+    ],
+    "skills": [
+      "./skills"
+    ]
+  },
+  "scripts": {
+    "test": "node --test --test-isolation=none tests/integrations.test.mjs",
+    "validate": "python scripts/validate.py",
+    "check:versions": "python scripts/bump-version.py --audit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JanPer1389/system-design-skill.git"
+  }
+}

@@ -7,6 +7,7 @@ import os
 from pathlib import Path, PurePosixPath
 import re
 import sys
+import time
 import uuid
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -33,6 +34,49 @@ def safe_path(name):
     return path
 
 
+def unique_object(pairs):
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError(f"Duplicate JSON key: {key}")
+        result[key] = value
+    return result
+
+
+def json_field_span(text, parts, start=0):
+    """Locate a dotted object/array field without reformatting the manifest."""
+    decoder = json.JSONDecoder()
+    while text[start].isspace():
+        start += 1
+    if not parts:
+        value, end = decoder.raw_decode(text, start)
+        valid_version(value)
+        return value, (start + 1, end - 1)
+    container = text[start]
+    cursor, index = start + 1, 0
+    while True:
+        while cursor < len(text) and (text[cursor].isspace() or text[cursor] == ","):
+            cursor += 1
+        if cursor >= len(text) or text[cursor] in "}]":
+            break
+        if container == "{":
+            key, cursor = decoder.raw_decode(text, cursor)
+            while text[cursor].isspace():
+                cursor += 1
+            cursor += 1  # colon; syntax has already been validated
+            while text[cursor].isspace():
+                cursor += 1
+        elif container == "[":
+            key = str(index)
+        else:
+            break
+        if str(key) == parts[0]:
+            return json_field_span(text, parts[1:], cursor)
+        _, cursor = decoder.raw_decode(text, cursor)
+        index += 1
+    raise ValueError("Missing JSON version field: " + ".".join(parts))
+
+
 def load_targets():
     config = json.loads((ROOT / ".version-bump.json").read_text(encoding="utf-8"))
     if not isinstance(config.get("files"), list) or not config["files"]:
@@ -50,6 +94,18 @@ def load_targets():
             version = valid_version(text.strip())
             start = len(text) - len(text.lstrip())
             span = (start, start + len(version))
+        elif kind == "json":
+            json.loads(text, object_pairs_hook=unique_object)
+            version, span = json_field_span(text, field.split("."))
+        elif kind == "yaml" and "." not in field:
+            matches = list(re.finditer(r"(?m)^" + re.escape(field) + r":[ \t]*(?P<value>[^\r\n]+?)[ \t]*\r?$", text))
+            if len(matches) != 1:
+                raise ValueError(f"Expected one YAML version field: {name}")
+            value = matches[0]["value"]
+            start, end = matches[0].span("value")
+            if value[0:1] in {"'", '"'} and value[-1:] == value[0:1]:
+                value, start, end = value[1:-1], start + 1, end - 1
+            version, span = valid_version(value), (start, end)
         elif kind == "skill" and field == "metadata.version":
             front = re.match(r"\A---\r?\n(?P<body>[\s\S]*?)\r?\n---(?:\r?\n|$)", text)
             if not front:
@@ -112,7 +168,14 @@ def atomic_write(path, data):
     temporary = path.with_name(path.name + ".version-" + uuid.uuid4().hex)
     try:
         temporary.write_bytes(data)
-        os.replace(temporary, path)
+        for attempt in range(5):
+            try:
+                os.replace(temporary, path)
+                break
+            except PermissionError as error:
+                if getattr(error, "winerror", None) not in {5, 32, 33} or attempt == 4:
+                    raise
+                time.sleep(0.05 * (2 ** attempt))
     finally:
         temporary.unlink(missing_ok=True)
 

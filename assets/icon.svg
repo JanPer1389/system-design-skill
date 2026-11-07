@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title">
+  <title id="title">System Design</title>
+  <rect width="96" height="96" rx="20" fill="#17243b"/>
+  <path d="M25 28h46M25 28v40M71 28v40M25 68h46" fill="none" stroke="#80bdff" stroke-width="5"/>
+  <rect x="16" y="19" width="18" height="18" rx="4" fill="#f7f9ff"/>
+  <rect x="62" y="19" width="18" height="18" rx="4" fill="#f7f9ff"/>
+  <rect x="16" y="59" width="18" height="18" rx="4" fill="#f7f9ff"/>
+  <rect x="62" y="59" width="18" height="18" rx="4" fill="#f7f9ff"/>
+</svg>

@@ -1,5 +1,12 @@
 # Release notes
 
+## 0.3.0 — 2026-11-07
+
+- Added native host manifests, marketplaces, startup hooks and runtime adapters alongside the five skills.
+- Added installation/update/removal documentation, compatibility information, package validation, portable packaging and infrastructure tests.
+- Added package assets, repository guidance, contribution conduct, line-ending rules and optional pre-commit checks.
+- Extended synchronized version updates to host manifests and marketplace entries, including nested JSON fields and flat YAML version fields.
+
 ## 0.2.1 — 2026-11-07
 
 - Added a shared release version and synchronized version metadata for all five skills.

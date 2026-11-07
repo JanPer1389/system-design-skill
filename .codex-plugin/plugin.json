@@ -1,0 +1,15 @@
+{
+  "name": "system-design",
+  "version": "0.3.0",
+  "description": "Architecture discussion, static reviews and detailed implementation plans",
+  "license": "MIT",
+  "skills": "./skills/",
+  "hooks": {},
+  "homepage": "https://github.com/JanPer1389/system-design-skill",
+  "repository": "https://github.com/JanPer1389/system-design-skill",
+  "interface": {
+    "displayName": "System Design",
+    "shortDescription": "Architecture discussion, static review and implementation planning",
+    "composerIcon": "./assets/icon.svg"
+  }
+}

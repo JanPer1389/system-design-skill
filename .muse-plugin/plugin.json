@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "name": "system-design",
+  "displayName": "System Design",
+  "version": "0.3.0",
+  "description": "Architecture discussion, static reviews and detailed implementation plans",
+  "compat": {
+    "source": "native",
+    "manifestDir": ".muse-plugin"
+  },
+  "capabilities": {
+    "skills": [
+      {
+        "id": "system-design-enter",
+        "path": "skills/system-design-enter/SKILL.md"
+      },
+      {
+        "id": "system-design-brainstorm",
+        "path": "skills/system-design-brainstorm/SKILL.md"
+      },
+      {
+        "id": "system-design-review",
+        "path": "skills/system-design-review/SKILL.md"
+      },
+      {
+        "id": "system-design-plan",
+        "path": "skills/system-design-plan/SKILL.md"
+      },
+      {
+        "id": "system-design-microservices",
+        "path": "skills/system-design-microservices/SKILL.md"
+      }
+    ],
+    "commands": [],
+    "hooks": [
+      {
+        "id": "session-start",
+        "event": "SessionStart",
+        "command": [
+          "node",
+          "hooks/session-start.cjs",
+          "--host",
+          "muse"
+        ],
+        "timeoutMs": 5000
+      }
+    ],
+    "mcpServers": [],
+    "reminders": []
+  }
+}

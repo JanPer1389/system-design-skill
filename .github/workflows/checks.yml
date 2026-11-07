@@ -1,0 +1,35 @@
+name: Package checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    env:
+      PYTHONUTF8: '1'
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check release versions
+        run: python scripts/bump-version.py --audit
+      - name: Validate package
+        run: python scripts/validate.py
+      - name: Test package infrastructure
+        run: python -m unittest discover -v -s tests -p "test_*.py"
+      - name: Test integration contracts
+        run: node --test --test-isolation=none tests/integrations.test.mjs
