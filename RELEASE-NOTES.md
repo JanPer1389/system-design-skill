@@ -1,5 +1,9 @@
 # Release notes
 
+## 0.3.1 — 2026-11-07
+
+- Corrected the standard Node test command for the supported runtime range, including CI on Linux and Windows.
+
 ## 0.3.0 — 2026-11-07
 
 - Added native host manifests, marketplaces, startup hooks and runtime adapters alongside the five skills.

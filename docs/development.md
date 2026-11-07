@@ -8,7 +8,7 @@ Use Python 3.10+ and Node 22.18+. The package scripts use only standard librarie
 python scripts/bump-version.py --audit
 python scripts/validate.py
 python -m unittest discover -v -s tests -p 'test_*.py'
-node --test --test-isolation=none tests/integrations.test.mjs
+node --test tests/integrations.test.mjs
 ```
 
 Tests cover version synchronization, manifest paths, packaging, installation/update/removal ownership, relocation, bootstrap shapes, native registration and transient context handling. They do not execute the fixture application or make model calls. A Windows account without symlink privileges skips the OS symlink test explicitly. GitHub Actions runs the offline suite on Linux and Windows when workflow execution is available.

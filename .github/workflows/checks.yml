@@ -32,4 +32,4 @@ jobs:
       - name: Test package infrastructure
         run: python -m unittest discover -v -s tests -p "test_*.py"
       - name: Test integration contracts
-        run: node --test --test-isolation=none tests/integrations.test.mjs
+        run: node --test tests/integrations.test.mjs

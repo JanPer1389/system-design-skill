@@ -24,7 +24,7 @@ From the repository root, with Python 3.10+ and Node 22.18+:
 python scripts/bump-version.py --audit
 python scripts/validate.py
 python -m unittest discover -s tests -p 'test_*.py'
-node --test --test-isolation=none tests/integrations.test.mjs
+node --test tests/integrations.test.mjs
 ```
 
 Model evaluations may incur costs and require separate authorization. Use disposable profiles for native install smoke checks; never copy credentials from the maintainer's live profile. Inspect Git state and preserve unrelated work.
