@@ -1,7 +1,5 @@
 # System Design
 
-![System Design](assets/icon.svg)
-
 Standalone, cross-agent skills for requirements discovery, domain modeling, architecture reviews, and detailed implementation planning.
 
 ## Skills
@@ -95,7 +93,6 @@ system-design-skill/
 ├── .muse-plugin/
 ├── .opencode/plugins/           OpenCode runtime adapter
 ├── .pi/extensions/              Pi runtime adapter
-├── assets/                     Package icon
 ├── docs/                       Installation, compatibility and maintenance
 ├── hooks/                      Host session-start hooks
 ├── integrations/               Shared bootstrap implementation

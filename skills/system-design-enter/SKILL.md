@@ -2,7 +2,7 @@
 name: system-design-enter
 description: Use when a system architecture request needs routing between requirements discussion, review and implementation planning.
 metadata:
-  version: "0.3.1"
+  version: "0.3.2"
 ---
 
 # Enter System Design

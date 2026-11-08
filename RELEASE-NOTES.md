@@ -1,5 +1,9 @@
 # Release notes
 
+## 0.3.2 — 2026-11-08
+
+- Removed the generated package icon from the repository, README and host interface metadata.
+
 ## 0.3.1 — 2026-11-07
 
 - Corrected the standard Node test command for the supported runtime range, including CI on Linux and Windows.

@@ -2,7 +2,7 @@
 name: system-design-brainstorm
 description: Use when the user wants to explore or agree application goals, domain concepts, boundaries, essential scenarios and architectural choices through discussion.
 metadata:
-  version: "0.3.1"
+  version: "0.3.2"
 ---
 
 # Brainstorm a system design
