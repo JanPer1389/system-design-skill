@@ -19,3 +19,5 @@ Read references at the point their branch is reached. A larger library is not a 
 | Loader/tool names or unavailable capability | [host tools](host-tools.md) | Native supported action or explicit limitation |
 
 The five topics domain discovery, context relationships, relationship mechanisms, design patterns and architecture patterns describe different levels. An entity association is not an organizational relationship. An organizational relationship is not a transport protocol. A framework is not proof that an architectural pattern exists. Move between levels by stating the invariant and evidence that justify the move.
+
+For material technology decisions read [stack assessment](stack-assessment.md): evidence, agent-owned choices, official-source verification and migration cost. For requested drawings, substantial work needing a visual explanation, or a sufficiently understood prompt-only model read [diagram guidance](diagrams.md): Mermaid views, evidence/status labels and rendering limits. These apply to every operation without changing its scope.

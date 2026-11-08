@@ -2,7 +2,7 @@
 name: system-design-brainstorm
 description: Use when the user wants to explore or agree application goals, domain concepts, boundaries, essential scenarios and architectural choices through discussion.
 metadata:
-  version: "0.3.2"
+  version: "0.4.0"
 ---
 
 # Brainstorm a system design
@@ -15,8 +15,8 @@ metadata:
 2. **Model the problem.** Use [domain discovery](../system-design-enter/references/domain-discovery.md) for goals, participants/authority, entities/lifecycles, vocabulary, relationships and application boundaries. Cover necessary functionality, important workflows/states/failures and constraints at the relevant depth.
 3. **Ask an independent round.** Select questions with settled prerequisites. Number them across rounds; include a recommendation and concise rationale in user terms. Defer dependent questions. Use the native question UI or chat, then **wait for answers**. Completion: the current frontier is settled before dependent choices are asked.
 4. **Update and play back.** Record authorship, close answered branches and reflect consequential behavior briefly for correction. Recompute the next frontier. Do not repeat settled decisions or make the user choose patterns/frameworks.
-5. **Compare approaches.** Present credible options grounded in agreed behavior and constraints. Explain gains, consistency/migration/operating costs and recommend the smallest sufficient choice. If only one is defensible, explain why. Record delegated technical choices as yours.
-6. **Consolidate and perform the builder check.** Write intent, goals/non-goals, concepts/relationships, boundaries, scenarios/states, constraints, alternatives, decisions/authorship and open issues. Read as an engineer without the conversation: fill known answers, settle minor delegated details and ask materially consequential user-owned gaps. This is self-review, not automatic delegation.
+5. **Compare approaches.** Present credible options grounded in agreed behavior and constraints. Explain gains, consistency/migration/operating costs and recommend the smallest sufficient choice. If only one is defensible, explain why. Make technical choices autonomously and record them as agent decisions.
+6. **Consolidate and perform the builder check.** Write intent, goals/non-goals, concepts/relationships, boundaries, scenarios/states, constraints, alternatives, decisions/authorship and open issues. Read as an engineer without the conversation: fill known answers, settle defensible technical details and ask materially consequential user-owned gaps. This is self-review, not automatic delegation.
 7. **Confirm and finish.** Save/link the design in the shared directory. Present the consolidated design for confirmation before requested planning. Completion: relevant upper-level choices are understood and confirmed, or early stop is recorded honestly.
 
 ## Conditional detail
@@ -28,3 +28,7 @@ Use [context relationships](../system-design-enter/references/context-relationsh
 Answers settle only choices shown. Agreement with an idea is not confirmation of an unseen design. End when the relevant design is understood/agreed or the user stops, rather than pursuing checklist completeness. On early stop save a draft with unresolved choices and consequences; stopping does not approve them.
 
 After confirmation load `../system-design-plan/SKILL.md` only if requested, following its review gate. Do not implement. Red flags: dependent questions in one round, technical quizzes, endless questions, proposals silently becoming user decisions. Correct the current branch rather than restart the discussion.
+
+## Technical judgment and presentation
+
+Apply the shared agent-owned decision and diagram policies. Use [stack assessment](../system-design-enter/references/stack-assessment.md) for material architecture/tooling choices and [diagram guidance](../system-design-enter/references/diagrams.md) when a drawing is requested, substantial work benefits from one, or a prompt-only model has enough facts. Choose technical details yourself; explain product consequences without asking the user to select technologies. Preserve binding constraints, not unexamined suggestions. Keep this operation's scope and nonimplementation limits.

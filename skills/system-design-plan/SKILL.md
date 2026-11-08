@@ -2,7 +2,7 @@
 name: system-design-plan
 description: Use when the user requests a detailed implementation plan or architecture handoff for another engineer or agent.
 metadata:
-  version: "0.3.2"
+  version: "0.4.0"
 ---
 
 # Write a system implementation plan
@@ -14,7 +14,7 @@ Read [shared policies](../system-design-enter/references/policies.md), [operatin
 ## Planning sequence
 
 1. **Establish sources and the review gate.** Missing architectural decisions **OR** missing code-grounded understanding requires `../system-design-review/SKILL.md`. Discussion alone is insufficient. Without code review requirements/design once, state implementation absence and continue. Reuse current sufficient evidence; do not loop. Brainstorm requires consolidated-design confirmation before this handoff.
-2. **Map scope and file responsibilities.** Inspect stack, conventions and exact symbols as text. Group changes by responsibility and coherent deliverables; preserve justified architecture. State each file's ownership before task decomposition. Completion: file structure has reasons and public boundaries.
+2. **Establish the system map and target.** Map goals, actors, domains, ownership, workflows and external dependencies. Independently test the supplied architecture against requirements; distinguish binding constraints from suggestions/current code. Apply stack assessment, compare the smallest sufficient alternatives and choose a justified target, including structural improvements where needed. Explain cost and behavior changes in user terms. Add diagrams under the shared triggers. Then **map scope and file responsibilities.** Inspect stack, conventions and exact symbols as text. Group changes by responsibility and coherent deliverables; preserve justified architecture. State each file's ownership before task decomposition. Completion: file structure has reasons and public boundaries.
 3. **Define global constraints and contracts.** Link design/review; specify goal/status, architecture, stack, binding values, assumptions, types, errors, state owners and dependencies. Establish transaction/repeat/concurrency semantics. Add review-focus failure/input classes with owning tasks/checks.
 4. **Size independently verifiable tasks.** Each includes result/requirement, exact Create/Modify/Test paths, interfaces consumed/produced, named dependencies and checkbox steps with checkable outcomes. Assign each helper/fixture/type to existing code or a task. Identify independent tasks and shared-file conflicts without automatically assigning agents/worktrees/commits.
 5. **Write behavior steps in TDD order.** Write concrete test assertions ? run the exact command and confirm expected failure ? implement the minimum specified interface/algorithm ? focused/regression checks ? useful refactoring and recheck. State working directory and expected observation. Record an explicit user override; documentation gets meaningful validation rather than fake failing tests.
@@ -27,4 +27,8 @@ Use [domain discovery](../system-design-enter/references/domain-discovery.md) fo
 
 Show test assertions, exact signatures and essential algorithm excerpts; leave routine bodies to the executor. Red flags: undefined types, invented line numbers, vague testing instructions, commands without expected results or a program transcript disguised as a plan.
 
-Save/link the plan under the shared plan path with acceptance criteria, assumptions, risks and unknowns. Commands are **unexecuted handoff instructions**. Do not run them, start implementation, change application files/dependencies/infrastructure or ask a redundant execution-method question. Outside brainstorm ask only about a blocking material decision.
+Present the substantive plan in the host plan view when available, otherwise in chat: system map, target architecture/stack and rationale, exact tasks/interfaces/checks, acceptance criteria, assumptions, risks and unknowns. A link or short summary alone is not the handoff. Save a matching copy under the shared plan path when permitted; report unsaved status if writing fails. Follow the shared output-limit and user-preference rules. Commands are **unexecuted handoff instructions**. Do not run them, start implementation, change application files/dependencies/infrastructure or ask a redundant execution-method question. Outside brainstorm ask only about a blocking material decision.
+
+## Technical judgment and presentation
+
+Apply the shared agent-owned decision and diagram policies. Use [stack assessment](../system-design-enter/references/stack-assessment.md) for material architecture/tooling choices and [diagram guidance](../system-design-enter/references/diagrams.md) when a drawing is requested, substantial work benefits from one, or a prompt-only model has enough facts. Choose technical details yourself; explain product consequences without asking the user to select technologies. Preserve binding constraints, not unexamined suggestions. Keep this operation's scope and nonimplementation limits.

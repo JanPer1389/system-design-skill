@@ -76,6 +76,12 @@ The [reference index](skills/system-design-enter/references/reference-index.md) 
 - [Architecture patterns](skills/system-design-enter/references/architecture-patterns.md).
 - [Review methodology](skills/system-design-enter/references/review-method.md), [question rounds](skills/system-design-enter/references/question-rounds.md), and [planning methodology](skills/system-design-enter/references/planning-method.md).
 
+All five skills make defensible technical choices for the user, including material SDK/framework/tooling improvements, without requiring an IT background. Current tooling and tentative technology suggestions are evaluated rather than automatically accepted. Recommendations explain the project benefit and transition cost; changing product claims require official-source verification when available. See [stack assessment](skills/system-design-enter/references/stack-assessment.md).
+
+Diagrams use Mermaid inside Markdown when requested, when substantial work benefits from a visual explanation, or for a prompt-only design once enough facts exist. Current evidence and proposals stay distinct; unchanged diagrams are not repeated in every reply. See [diagram guidance](skills/system-design-enter/references/diagrams.md).
+
+Plans connect the system map to a justified target solution and detailed implementation tasks, contracts, TDD instructions and acceptance checks. The agent presents the substantive plan in a supported native plan view or chat and saves a matching copy; Plan Mode is not required and a file link alone is insufficient.
+
 All skills follow one [shared policy source](skills/system-design-enter/references/policies.md). Reusable project examples use fictional names.
 
 ## Package layout

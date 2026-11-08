@@ -2,6 +2,28 @@
 
 This is a fictional example of task specificity for HarborDesk, not a universal scaffold or code to run during planning. Assume the agreed design uses a Python modular server, pytest already exists, and confirmation intents must distinguish a repeated request from a different payload using the same identity. The plan author has inspected those stack facts in the hypothetical project. None of the commands below have been executed by this skill.
 
+## System map and target before the task excerpt
+
+HarborDesk is a fictional booking server: members request slots and staff confirm them. Reservations owns confirmation state and intent results; the authoritative database owns exclusivity constraints. The target remains a modular monolith because no independent deployment need is established. A cache/broker would not enforce slot exclusivity and is not selected. The following is a proposed target, not evidence of an inspected implementation; Mermaid rendering has not been verified.
+
+```mermaid
+flowchart LR
+    Staff["Staff"] -->|"Confirm booking with intent identity"| API["Application boundary"]
+    API --> Reservations["Reservations module"]
+    Reservations --> Policy["Pure repeat-intent policy"]
+    Reservations -->|"Atomic intent and confirmation write"| DB[("Reservations-owned database")]
+```
+
+The pure policy decides replay/create/conflict; the write boundary enforces concurrency. These are components of one server, not separate services. This overview and its constraints must be presented with the detailed plan, not replaced by a file link.
+
+| Need | Target decision / contract | Owning work / acceptance |
+| --- | --- | --- |
+| Same request returns original result | `decide_confirmation` and stored intent identity | Task 1 below: concrete replay/conflict assertions |
+| Only one confirmed holder per slot | Atomic authoritative transaction plus database constraint | Required later persistence task: concurrent competing confirmations and duplicate-intent integration checks |
+| Existing deployment remains usable | Single modular server; no new network dependency | Complete plan: compatibility and deployment-input checks owned by the migration task if changes are needed |
+
+The excerpt below details Task 1 only. A real full plan must specify the remaining tasks at the same level, including their exact files/contracts; this table is not a substitute. It illustrates the connection from system intent to implementation, not a reusable prescribed stack.
+
 ## Goal, architecture and global constraints
 
 Goal: define the pure domain decision for a repeated confirmation intent. Persistence and slot exclusivity remain the responsibility of the authoritative write transaction, planned separately. A pure decision function does not by itself make concurrent requests idempotent.

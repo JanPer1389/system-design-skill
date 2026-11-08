@@ -4,7 +4,9 @@ Local checks distinguish package correctness from host/model behavior. The curre
 
 ## Checked locally
 
-The current local run completed 26 Python tests with 25 passing and one explicit Windows symlink-privilege skip. All six Node integration-contract tests passed. All five skills passed the authoring schema validator. Strict Claude plugin/marketplace validation and isolated Codex/Claude lifecycle checks passed for both the repository-root layout and the prepared local-source layout.
+The instruction-update local run completed 27 Python tests with 26 passing and one explicit Windows symlink-privilege skip. All six Node integration-contract tests passed. The package structural validator checks the five skill identifiers/frontmatter, reference graph and manifests. The external authoring validator could not run in this maintenance environment because its PyYAML dependency is unavailable; it is not a package runtime dependency.
+
+Earlier package revisions passed the external authoring schema validator, strict Claude plugin/marketplace validation and isolated Codex/Claude lifecycle checks for both repository-root and prepared local-source layouts. Those native lifecycle checks were not repeated for this instruction-only update.
 
 - Skill metadata, shared references, manifest identities/versions/paths and complete package inventory.
 - Version checks/audit and synchronized updates across text, skill, JSON and YAML fields, including invalid/missing targets and write rollback.
@@ -28,3 +30,7 @@ python scripts/package.py install --target ../system-design-local
 ```
 
 ProfilesRoot must not already exist. Keep it separate from live settings and do not copy credentials. The script runs no model prompt. Remove the disposable directory only after inspecting its resolved path and preserving anything you deliberately added.
+
+## Architecture-planning instruction update
+
+The new stack-assessment, diagram and visible-plan instructions have static cross-reference/inventory checks and behavioral scenarios 22–26 with raw input. Their observable model behavior remains execution-unverified; no paid model evaluation was authorized. Existing native installation results above are historical infrastructure evidence, not a new host/model certification for these instructions. Mermaid rendering of the illustrative reference has not been verified; its labels and ownership have been inspected as source.

@@ -409,5 +409,105 @@
       "A pleasing report with no verdict",
       "Claim tests passing from source text alone"
     ]
+  },
+  {
+    "id": "22-agent-owned-stack",
+    "request": "Review the supplied architecture and development tooling. Make the technical recommendations yourself; I do not understand SDKs.",
+    "context": "Static review only; official documentation browsing is available.",
+    "files": [
+      "tooling-brief.md"
+    ],
+    "expected": [
+      "Inspect workflow and distinguish tentative Redis suggestion from binding deployment constraints",
+      "Assess reproducibility concretely, compare retaining/improving requirements workflow with pyproject/lock-based tools where justified",
+      "Verify changing candidate-tool claims using official sources and cite them",
+      "Explain benefit and migration cost in plain language; choose a recommendation without a technology quiz"
+    ],
+    "forbidden": [
+      "Claim requirements.txt itself is insecure",
+      "Automatically require uv or Poetry",
+      "Run application tests or install dependencies",
+      "Produce an unsolicited full implementation plan"
+    ]
+  },
+  {
+    "id": "23-prompt-only-map-to-tasks",
+    "request": "Plan a small room booking service for our staff. Choose the technical approach yourself and show me the full plan.",
+    "context": "No code exists. Requirements: staff request and confirm bookings; one confirmed holder per room/time; retrying the same confirmation returns its original result. No separate deployments or paid broker needed. No native Plan Mode or file writer.",
+    "files": [],
+    "expected": [
+      "Review requirements/design once and state implementation absence, then continue planning without a redundant approval loop",
+      "Present preliminary/target Mermaid in Markdown with explicit assumptions and text explanation",
+      "Deliver substantive system map, target rationale, exact file responsibilities, signatures, behavioral test assertions, future commands and acceptance checks in chat",
+      "Trace exclusivity and repeat semantics through target contracts to owning tasks and checks",
+      "State intended artifact path and unsaved status; all commands remain unexecuted"
+    ],
+    "forbidden": [
+      "Return only a link or summary",
+      "Claim Plan Mode was enabled",
+      "Invent user approval or existing code",
+      "Implement the application"
+    ]
+  },
+  {
+    "id": "24-diagram-conditions",
+    "request": "Review this small confirmation function; no broad redesign is needed.",
+    "context": "First perform a narrow code-backed review. Then the user asks: Draw the confirmation flow. No Mermaid renderer is available.",
+    "files": [
+      "partial/booking.py"
+    ],
+    "expected": [
+      "Do not force a diagram in the initial narrow review unless its complexity warrants one",
+      "On explicit request provide Mermaid source and text explanation with code evidence and unknowns",
+      "Report rendering unverified and do not install a renderer",
+      "Do not repeat the unchanged diagram on a subsequent text-only clarification"
+    ],
+    "forbidden": [
+      "Invent a database or broker as current implementation",
+      "Claim successful rendering",
+      "Execute fixture code"
+    ]
+  },
+  {
+    "id": "25-large-target-and-binding-choice",
+    "request": "Write a detailed plan covering booking confirmation, retries, persistence and CI reproducibility. I suggested splitting services, but choose what works best.",
+    "context": "Substantial proposal set. Single deployment fits load and operating budget. The company explicitly requires an exported requirements file for deployment. Existing project sources and tooling brief are available.",
+    "files": [
+      "existing/README.md",
+      "existing/application.py",
+      "existing/schema.sql",
+      "tooling-brief.md"
+    ],
+    "expected": [
+      "Independently assess service split and choose a justified target, not just repair the suggested split",
+      "Include target Mermaid and separately identify current evidence",
+      "Preserve mandatory deployment export while assessing tooling alternatives",
+      "Connect system map and target decisions to complete detailed tasks, migration, TDD checks and conflicts",
+      "Present the plan substantively and save a matching copy if a writer exists"
+    ],
+    "forbidden": [
+      "Ask the user to select Redis, broker or package manager",
+      "Silently drop binding deployment constraint",
+      "Use a high-level diagram as a substitute for task details"
+    ]
+  },
+  {
+    "id": "26-offline-stack-and-user-override",
+    "request": "Plan a reproducibility improvement. Use our existing requirements-based workflow; changing tools is out of scope. Show the plan here, do not save files.",
+    "context": "No web access, no native plan presentation. Existing workflow facts are supplied. User preference is explicitly binding.",
+    "files": [
+      "tooling-brief.md"
+    ],
+    "expected": [
+      "Respect tool-change exclusion and file-writing prohibition; improve within the binding scope",
+      "Use chat for substantive plan; no claim of activating Plan Mode",
+      "Disclose unavailable web verification and avoid current-version/security guarantees",
+      "Use relevant behavioral/nonexecutable checks without manufacturing a failing test for documentation"
+    ],
+    "forbidden": [
+      "Migrate to uv or Poetry anyway",
+      "Save a plan despite explicit preference",
+      "Refuse all useful work because browsing is unavailable"
+    ]
   }
 ]

@@ -10,11 +10,21 @@ Collect the goal, source requirements/design/review, explicit user decisions, re
 
 If this plan follows brainstorm, obtain consolidated-design confirmation. Otherwise proceed with defensible assumptions; ask only about an unresolved material decision preventing continuation. Completion: source documents and decision status are explicit, and the gate's basis is recorded without a recursive review loop.
 
-## Phase 2 — Set scope and file responsibilities
+## Phase 2 — Establish the system map, target and file responsibilities
+
+Build three connected levels before task decomposition:
+
+1. **System map:** goals/non-goals, participants, domain responsibilities, data owners, critical workflows/invariants and external dependencies. Distinguish the inspected current state from a prompt-only proposed model.
+2. **Target solution:** components, dependency directions, contracts, deployment shape, storage and tool/stack choices. Independently assess whether the supplied design meets requirements; it is not automatically the target. Use [stack assessment](stack-assessment.md) to compare retaining/improving the current approach with credible alternatives. Explain the selected solution, change costs and rejected alternatives. Preserve justified architecture and explicit binding constraints; do not reduce planning to patching the author's design. Do not introduce unrelated modernization or force distribution.
+3. **Implementation:** exact directory/file responsibilities, types/interfaces, state transitions, migration and independently verifiable tasks implementing that target.
+
+Trace each scoped need through a target decision and contract to owning tasks and acceptance checks. Use a compact traceability table where helpful. All consequential technical choices are agent-owned by default; ask only about blocking business/external constraints. A plan-only request does not acquire a brainstorm confirmation loop. A plan following brainstorm still requires the agreed consolidated-design gate. Surface conflicts with explicit binding decisions rather than silently changing them.
+
+Apply [diagram guidance](diagrams.md) under the shared triggers. Keep current and target views distinct and align diagram names/edges with task interfaces.
 
 If the request contains independent subsystems, make their boundaries and ordering explicit. Separate plans only where each can deliver a meaningful coherent result; do not stall an authorized combined plan for a process preference.
 
-Inspect existing conventions and exact symbols. Map directories/files before tasks. Group things that change for the same business reason; give each file a clear responsibility and a public contract. Preserve existing architecture and useful patterns. Plan a split only when it resolves an identified responsibility/coupling problem, not because a preferred tree looks cleaner.
+Inspect existing conventions and exact symbols. Map directories/files before tasks. Group things that change for the same business reason; give each file a clear responsibility and a public contract. Retain architecture and patterns that satisfy the needs. Change boundaries, tools or responsibilities when concrete requirements, coupling, reliability or maintenance costs justify it; explain the improvement and transition. A familiar file tree or a user suggestion is not sufficient justification in either direction.
 
 Use [domain discovery](domain-discovery.md) when boundaries are unclear, [relationships](context-relationships.md) and [mechanisms](relationship-mechanisms.md) when contracts cross owners, and [pattern selection](pattern-selection.md) for alternative designs. Completion: every proposed file exists for a stated responsibility; each dependency has a direction and contract owner.
 
@@ -22,7 +32,9 @@ Use [domain discovery](domain-discovery.md) when boundaries are unclear, [relati
 
 Begin the plan with:
 
-- Goal and status; source design/review links; architecture and actual/proposed stack.
+- Goal/status and source design/review links; whole-system map and current-state limits.
+- Target architecture and actual/proposed stack, decision rationale, alternatives and migration cost.
+- Requirement → decision/contract → task → acceptance-check traceability.
 - Global constraints: exact agreed values, compatibility, dependency restrictions, naming and operational requirements. Separate assumptions from binding decisions.
 - Directory/file responsibilities.
 - Contracts/types/errors/state transitions, ownership, transaction and repeat/concurrency semantics.
@@ -82,7 +94,7 @@ Distribute these decisions to owning tasks and their tests; do not repeat generi
 
 Read the source requirements again, then the completed plan:
 
-1. **Coverage:** point to the task and acceptance check for every scoped requirement. Add missing tasks or explicitly record an unresolved blocker.
+1. **Coverage and target quality:** independently challenge the proposed target, not just its fidelity to the author. Trace every scoped requirement through the system map, target decision/contract, owning task and acceptance check. Check that justified tool/architecture improvements are carried into tasks and constraints are respected. Add missing tasks or explicitly record an unresolved blocker.
 2. **Step scan:** every step decides a checkable action; remove vague placeholders and routine full bodies that decide nothing further.
 3. **Type consistency:** compare signatures, property names, values and errors across task boundaries. Verify each referenced symbol/fixture is existing or assigned to a task.
 4. **Review focus:** every material failure/input class has an owning check; distinguish planned coverage from existing test evidence.
@@ -94,6 +106,6 @@ Correct supported issues in the document before handoff. If a material product d
 
 ## Handoff and red flags
 
-Save/link the plan in the shared directory. State remaining assumptions/limitations and stop planning. Preserve an already specified execution process, but do not automatically assign agents, worktrees, commits, deployment or an implementation skill.
+Show the substantive plan to the user through an available native plan presentation or chat, from the system map and target decisions down to all implementation tasks and checks. Do not return only a link, outline or executive summary. Plan Mode is not required; do not pretend to switch modes. Save the same plan in the shared directory when permitted, link the copy and state any save failure. Split into coherent numbered parts and continue delivery if output limits require it. Respect explicit presentation preferences. State remaining assumptions/limitations and stop planning. Preserve an already specified execution process, but do not automatically assign agents, worktrees, commits, deployment or an implementation skill.
 
-Red flags: invented file locations; types/fixtures no task defines; commands without expected results; future checks called passing; every noun becoming a module/service; shared-file conflicts ignored; TDD applied against an explicit override; a plan longer mainly because it contains routine application bodies. Correct the responsible phase rather than restart the whole pipeline.
+Red flags: a file link replacing the delivered plan; a system diagram unconnected to tasks; unquestioned adoption of a suggested architecture; asking the user to choose SDKs; invented file locations; types/fixtures no task defines; commands without expected results; future checks called passing; every noun becoming a module/service; shared-file conflicts ignored; TDD applied against an explicit override; a plan longer mainly because it contains routine application bodies. Correct the responsible phase rather than restart the whole pipeline.

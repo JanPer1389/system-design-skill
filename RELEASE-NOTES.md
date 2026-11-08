@@ -1,5 +1,13 @@
 # Release notes
 
+## 0.4.0 — 2026-11-08
+
+- Added agent-owned stack/tooling assessment across all five skills, with evidence, official-source checks and migration trade-offs for nontechnical users.
+- Added conditional Mermaid diagrams for explicit requests, substantial work and sufficiently understood prompt-only designs, with current/proposed separation and rendering limits.
+- Connected system maps and independently justified target designs to exact implementation tasks, interfaces and acceptance checks.
+- Required substantive plan presentation in a supported native plan view or chat, alongside the saved Markdown copy.
+- Added behavioral fixtures and evaluation criteria for these changes; model execution remains unverified. No draft skill was added or changed.
+
 ## 0.3.2 — 2026-11-08
 
 - Removed the generated package icon from the repository, README and host interface metadata.

@@ -1,5 +1,5 @@
 name: system-design
-version: "0.3.2"
+version: "0.4.0"
 description: Static architecture review, discussion and planning
 provides_hooks:
   - pre_llm_call

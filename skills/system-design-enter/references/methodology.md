@@ -44,7 +44,7 @@ Use the selected operation's output contract. Then take a fresh pass from the re
 4. **Proportion:** remove infrastructure or full implementation bodies that the decision does not need.
 5. **Claim check:** identify what proves each conclusion, read that evidence, limit the claim, then state it.
 
-Fix supported omissions before handing over. Missing evidence produces a limitation, not a fabricated success. Save/link the document in the shared artifact directories; report an unsaved artifact honestly if no writer exists. Completion: a recipient can act on the artifact within its stated limits without reconstructing the author's conversation.
+Fix supported omissions before handing over. Missing evidence produces a limitation, not a fabricated success. Present plans substantively through the available native plan view or chat and save a matching copy; save/link other documents in the shared artifact directories; report an unsaved artifact honestly if no writer exists. Completion: a recipient can act on the artifact within its stated limits without reconstructing the author's conversation.
 
 ## Stop and correct course
 

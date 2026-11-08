@@ -57,7 +57,8 @@ class DistributionTests(unittest.TestCase):
     def test_subject_references_are_packaged_and_reachable_from_skills(self):
         subjects = {"domain-discovery.md", "context-relationships.md", "relationship-mechanisms.md",
                     "design-patterns.md", "architecture-patterns.md", "review-method.md", "review-report.md",
-                    "planning-method.md", "planning-example.md", "question-rounds.md", "methodology.md"}
+                    "planning-method.md", "planning-example.md", "question-rounds.md", "methodology.md",
+                    "stack-assessment.md", "diagrams.md"}
         refs = ROOT / "skills/system-design-enter/references"
         self.assertTrue(all((refs / name).is_file() for name in subjects))
         reached, pending = set(), list((ROOT / "skills").glob("*/SKILL.md"))
@@ -72,6 +73,16 @@ class DistributionTests(unittest.TestCase):
                     if target.suffix == ".md" and target.is_file():
                         pending.append(target)
         self.assertTrue({(refs / name).resolve() for name in subjects}.issubset(reached))
+
+    def test_behavioral_inputs_have_unique_ids_and_existing_scoped_fixtures(self):
+        scenarios = json.loads((ROOT / "tests/scenarios.json").read_text(encoding="utf-8"))
+        self.assertEqual(len({case["id"] for case in scenarios}), len(scenarios))
+        fixture_root = (ROOT / "tests/fixtures").resolve()
+        for case in scenarios:
+            self.assertTrue(case["request"] and case["context"] and case["expected"] and case["forbidden"], case["id"])
+            for name in case["files"]:
+                fixture = (fixture_root / name).resolve()
+                self.assertTrue(fixture.is_relative_to(fixture_root) and fixture.is_file(), (case["id"], name))
 
     def test_validator_rejects_invalid_ids_missing_manifest_paths_and_local_paths(self):
         source = Path(self.temp.name) / "mutated package"

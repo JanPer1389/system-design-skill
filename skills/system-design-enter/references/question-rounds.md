@@ -31,7 +31,7 @@ Cover only relevant upper-level territory: goal/success, participants/authority,
 
 Once the relevant behavior is understood, present the credible ways to realize it. Ground each in requirements and the actual project. Explain what the user gains and pays: consistency, operational effort, migration and ability to change. Recommend the smallest sufficient option. If only one option is defensible, explain the constraints that rule out others; do not invent alternatives for symmetry.
 
-Use [relationships](context-relationships.md), [mechanisms](relationship-mechanisms.md) and [architecture patterns](architecture-patterns.md) internally. The user approves consequential behavior/boundaries, not the name of a pattern. Record a delegated technical choice as an agent decision, not a user-authored one.
+Use [relationships](context-relationships.md), [mechanisms](relationship-mechanisms.md) and [architecture patterns](architecture-patterns.md) internally. The user approves consequential behavior/boundaries, not the name of a pattern. Technical choices belong to the agent by default; do not require a separate delegation. Record them as agent decisions, not user-authored ones. Ask about outcomes, affordability and operating constraints rather than technologies. Apply [stack assessment](stack-assessment.md), and explain the recommended approach in user terms.
 
 ## 5. Consolidate and perform the builder check
 
@@ -41,10 +41,10 @@ Read it as an engineer who has the document and sources but not this conversatio
 
 - What decision would I still have to guess that could change what gets built?
 - Is the answer already in sources/conversation and merely missing from the design?
-- Can I reasonably settle it within the delegated technical choices?
+- Can I reasonably settle it as an agent-owned technical choice?
 - Does it require the user's product/business decision?
 
-Fill answers already available; settle minor delegated details and label them; bring only material user-owned gaps in an independent round. This is a self-review, not an automatic subagent dispatch or paid evaluation. Completion: a builder can prepare a plan without inventing the desired behavior.
+Fill answers already available; settle defensible technical details and label them; bring only material user-owned gaps in an independent round. This is a self-review, not an automatic subagent dispatch or paid evaluation. Completion: a builder can prepare a plan without inventing the desired behavior.
 
 ## 6. Confirmation and early stop
 

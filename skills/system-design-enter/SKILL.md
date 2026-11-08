@@ -2,7 +2,7 @@
 name: system-design-enter
 description: Use when a system architecture request needs routing between requirements discussion, review and implementation planning.
 metadata:
-  version: "0.3.2"
+  version: "0.4.0"
 ---
 
 # Enter System Design
@@ -24,3 +24,7 @@ Sibling paths are `../<portable-ID>/SKILL.md`. Resolve host IDs through [host to
 A review-only request ends with review. A plan request does not force brainstorm when defensible assumptions suffice. Brainstorm followed by requested planning confirms the consolidated design first. Stopping questions does not approve open choices.
 
 If essential evidence/capability is missing, state the limitation and continue unaffected work. Outside brainstorm ask only about a blocking material decision. Red flags: routing all requests through all skills; treating discussion as code inspection; repeating review without changed scope/evidence; invoking an already active specialization. Correct the gate/route rather than restart the conversation.
+
+## Technical judgment and presentation
+
+Apply the shared agent-owned decision and diagram policies. Use [stack assessment](references/stack-assessment.md) for material architecture/tooling choices and [diagram guidance](references/diagrams.md) when a drawing is requested, substantial work benefits from one, or a prompt-only model has enough facts. Choose technical details yourself; explain product consequences without asking the user to select technologies. Preserve binding constraints, not unexamined suggestions. Keep this operation's scope and nonimplementation limits.

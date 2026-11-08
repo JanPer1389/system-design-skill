@@ -2,7 +2,7 @@
 name: system-design-microservices
 description: Use when evaluating service decomposition, domain ownership or consistency and failure behavior across service boundaries during review or planning.
 metadata:
-  version: "0.3.2"
+  version: "0.4.0"
 ---
 
 # Evaluate service decomposition
@@ -19,7 +19,7 @@ This specializes review/plan and keeps their static/nonimplementation boundaries
 
 1. **Map responsibility.** Identify domain decisions, vocabulary, entities, invariants and owners from requirements/code/design. Separate current contexts from proposals. Completion: each candidate boundary has a coherent purpose beyond a noun/folder.
 2. **Map relationships.** For one service inspect callers, data authority and dependencies; for the whole project map important edges. Separate entity relationships, upstream/downstream model influence and command/query/event flow. Completion: material edges have owners, contract meaning and consistency needs.
-3. **Compare deployment choices.** Check whether a modular monolith meets the same need. Evaluate independent load, releases, isolation/security, ownership and operational capacity. Preserve justified existing separation. A user-mandated split is a user constraint, not invented technical necessity.
+3. **Compare deployment choices.** Check whether a modular monolith meets the same need. Evaluate independent load, releases, isolation/security, ownership and operational capacity. Preserve justified existing separation. An explicitly mandatory split is a binding constraint, not invented technical necessity. A tentative request for microservices is an approach to evaluate, not automatic authorization to assume distribution is needed. Assess transport/SDK and operating tools against the same invariants and costs.
 4. **Choose the smallest viable mechanism.** Read [mechanisms/frameworks](../system-design-enter/references/relationship-mechanisms.md) and [architecture patterns](../system-design-enter/references/architecture-patterns.md). Assign service/data ownership, contracts and local transactions; choose synchronous/asynchronous interaction from timing/failure needs. Do not distribute technical layers mechanically.
 5. **Walk failures.** Trace normal completion, duplicate/reordered delivery, concurrent attempts, ambiguous timeout, unavailable dependency and failed recovery. Define intent identity/retention, atomic deduplication/effect, deadlines, bounded retries/backoff, overload and irreversible actions. Completion: each failure has visible state and a recovery owner.
 6. **Plan evolution and visibility.** Address compatibility/version coexistence, phased data/traffic migration, temporary shared-storage coupling, rollback/recovery limits, correlation, delivery lag and stuck/failed work. Plan assigns concrete tasks; review identifies gaps/options without implementing them.
@@ -30,3 +30,7 @@ This specializes review/plan and keeps their static/nonimplementation boundaries
 Outbox requires a local state-change/publication invariant; Inbox/deduplication requires a duplicate-effect invariant; Saga requires cross-transaction recovery/compensation. Distributed coordination needs an explicit invariant and failure/cost analysis. A broker supplies no business-data atomicity. A Saga-named framework proves neither persistence nor compensation.
 
 Red flags: service per entity, remote hops per technical layer, ambiguous write ownership, unbounded retries without identity, or gRPC/Redis/broker chosen from domain alone. Revisit the affected boundary/mechanism. Do not start services, infrastructure or application code.
+
+## Technical judgment and presentation
+
+Apply the shared agent-owned decision and diagram policies. Use [stack assessment](../system-design-enter/references/stack-assessment.md) for material architecture/tooling choices and [diagram guidance](../system-design-enter/references/diagrams.md) when a drawing is requested, substantial work benefits from one, or a prompt-only model has enough facts. Choose technical details yourself; explain product consequences without asking the user to select technologies. Preserve binding constraints, not unexamined suggestions. Keep this operation's scope and nonimplementation limits.
